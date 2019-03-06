@@ -12,3 +12,9 @@
  *
  */
 @import "bootstrap";
+
+.bg-yellow { background-color: #f3e303 !important; }
+
+.bg-yellow .navbar-brand { color: black; }
+
+.navbar-dark .navbar-nav .nav-link { color: #313127; }

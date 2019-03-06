@@ -4,7 +4,7 @@ class ShopsController < ApplicationController
   end
 
   def new
-  @shop = Shop.new
+    @shop = Shop.new
   end
 
   def create
@@ -17,12 +17,25 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @shop = shop.find(params[:id])
+    @shop = Shop.find(params[:id])
+  end
+
+  def edit
+    @shop = Shop.find(params[:id])
+  end
+
+  def update
+    @shop = Shop.find(params[:id])
+    if @shop.update(shop_params)
+      redirect_to @shop, notice: "店舗を更新しました。"
+    else
+      render :edit
+    end
   end
   
   private
   
   def shop_params
-    params.require(:shop).permit(:name, :address, :phone, :description)
+    params.require(:shop).permit(:name, :address, :phone, :description, :new_image)
   end
 end

@@ -1,10 +1,19 @@
 <div class="col-md-10 offset-md-1 mt-5">
-  <h2><%= @shop.name %></h2>
-  <ul>
-    <li><b>住所: </b><%= @shop.address %></li>
-    <li><b>電話番号: </b><%= @shop.phone %></li>
-  </ul>
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <%= show_shop_image @shop %>
+    </div>
+    <div class="col-md-8">
+      <h2><%= @shop.name %></h2>
+      <ul>
+        <li><b><%= t ".address" %>: </b><%= @shop.address %></li>
+        <li><b><%= t ".phone" %>: </b><%= @shop.phone %></li>
+      </ul>
+    </div>
+  </div>
   <hr>
-  <h4>店舗の説明</h4>
+  <h4><%= t ".description" %></h4>
   <%= simple_format @shop.description %>
+  <%= link_to t(".edit"), edit_shop_path(@shop), class: "btn btn-primary" %>
+  <%= link_to t(".return"), shop_path, class: "btn btn-secondary" %>
 </div>

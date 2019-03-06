@@ -1,0 +1,12 @@
+ja:
+  shops:
+    new:
+      name: 店舗登録
+    edit:
+      name: 店舗更新
+    show:
+      address: 住所
+      phone: 電話番号
+      description: 詳細情報
+      edit: 編集
+      return: 戻る
