@@ -15,5 +15,31 @@
   <h4><%= t ".description" %></h4>
   <%= simple_format @shop.description %>
   <%= link_to t(".edit"), edit_shop_path(@shop), class: "btn btn-primary" %>
+  <%= button_tag t(".delete"), class: "btn btn-warning", data: { toggle: "modal", target: "#delete-shop" } %>
+  <% if user_signed_in? %>
+    <%= link_to t(".review_new"), new_shop_review_path(@shop), class: "btn btn-info" %>
+  <% end %>
   <%= link_to t(".return"), shop_path, class: "btn btn-secondary" %>
+  <hr>
+  <%= render partial: "reviews/review", collection: @shop.reviews %>
 </div>
+
+  <div class="modal fade" id="delete-shop">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-name" id="exampleModalLabel"><%= t(".modal_name") %></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p><%= t(".question_shop", shop: @shop.name) %></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t(".chancel") %></button>
+          <%= link_to t(".delete_action"), shop_path(@shop), method: :delete, class: "btn btn-danger" %>
+        </div>
+      </div>
+    </div>
+  </div>

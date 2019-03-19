@@ -1,0 +1,10 @@
+<% @shops.each do |shop| %>
+  <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+    <%= show_shop_image shop %>
+    <h4 class="mt-2"><%= link_to shop.name, shop_path(shop) %></h4>
+    <p><%= truncate(shop.description, length: 50) %></p>
+  </div>
+<% end %>
+  <div class="col-12">
+    <%= paginate @shops %>
+  </div>

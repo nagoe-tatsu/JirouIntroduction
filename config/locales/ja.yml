@@ -1,4 +1,3 @@
----
 ja:
   activerecord:
     models:
@@ -11,6 +10,22 @@ ja:
         description: 詳細
         new_image: 画像
         image: 画像
+      user:
+        email: メールアドレス
+        nick_name: ニックネーム
+        avatar: プロフィール画像
+        password: パスワード
+        password_confirmation: パスワード再入力
+        current_password: 現在のパスワード
+        remember_me: ログイン情報を記録する
+      review:
+        title: タイトル
+        body: 本文
+        evaluation: 評価
+        book_id: 店舗
+        book: 店舗
+        user_id: ユーザー
+        user: ユーザー
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :shops
+  devise_for :users
+  resources :shops do
+    resources :reviews, except: :index
+  end
   root "shops#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

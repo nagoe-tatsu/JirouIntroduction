@@ -1,0 +1,19 @@
+current directory: /Users/shelter.002/ruby-camp/jirou_introduction/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
+/Users/shelter.002/.rbenv/versions/2.5.3/bin/ruby -r ./siteconf20190319-61421-44b8rj.rb extconf.rb
+creating Makefile
+
+current directory: /Users/shelter.002/ruby-camp/jirou_introduction/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
+make "DESTDIR=" clean
+
+current directory: /Users/shelter.002/ruby-camp/jirou_introduction/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
+make "DESTDIR="
+compiling bcrypt_ext.c
+compiling crypt.c
+compiling crypt_blowfish.c
+compiling crypt_gensalt.c
+compiling wrapper.c
+linking shared-object bcrypt_ext.bundle
+
+current directory: /Users/shelter.002/ruby-camp/jirou_introduction/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bcrypt_ext.bundle ./.gem.20190319-61421-1yuo4gi

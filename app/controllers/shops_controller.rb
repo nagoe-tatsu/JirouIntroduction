@@ -1,6 +1,8 @@
 class ShopsController < ApplicationController
+  before_action :set_shop, only: [:edit, :update, :destroy]
+
   def index
-    @shops = Shop.all
+    @shops = Shop.with_attached_image.find_newest_shops(params[:page])
   end
 
   def new
@@ -17,25 +19,35 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @shop = Shop.find(params[:id])
+    @shop = Shop.with_attached_image.includes(reviews: :user).find(params[:id])
   end
 
   def edit
-    @shop = Shop.find(params[:id])
+    
   end
 
   def update
-    @shop = Shop.find(params[:id])
+    
     if @shop.update(shop_params)
       redirect_to @shop, notice: "店舗を更新しました。"
     else
       render :edit
     end
   end
+
+  def destroy
+    
+    @shop.destroy
+    redirect_to shops_path, notice: "店舗を削除しました。"
+  end
   
   private
   
   def shop_params
     params.require(:shop).permit(:name, :address, :phone, :description, :new_image)
+  end
+
+  def set_shop
+    @shop = Shop.find(params[:id])
   end
 end
